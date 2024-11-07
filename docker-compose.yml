@@ -1,0 +1,21 @@
+services:
+  my-app:
+    image: tamirbi/flask-contacts-devops:latest  
+    ports:
+      - "5053:5053"
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=3306
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: contacts_db  
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
