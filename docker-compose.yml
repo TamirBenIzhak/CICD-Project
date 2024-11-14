@@ -1,3 +1,4 @@
+version: '3'
 services:
   my-app:
     image: tamirbi/flask-contacts-devops:latest  
