@@ -1,0 +1,15 @@
+version: '3'
+services:
+  app:
+    image: tamirbi/flask-contacts-app:latest
+    ports:
+      - "5052:5052"
+    environment:
+      - DATABASE_TYPE=MONGO
+      - MONGO_URI=mongodb://mongo:27017/contacts_db
+  mongo:
+    image: mongo
+    volumes:
+      - mongo-data:/data/db
+volumes:
+  mongo-data:
